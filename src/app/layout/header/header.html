@@ -1,0 +1,14 @@
+<header class="top-bar">
+  <img src="assets/images/logo.webp" alt="GOG.com Logo" class="logo" />
+
+  <div class="cart-section" (mouseenter)="isCartOpen = true" (mouseleave)="isCartOpen = false">
+    <div class="cart-icon-wrapper">
+      <img src="assets/icons/cart.svg" alt="Cart" class="cart-icon" />
+      <span class="cart-items-count">{{ cartService.totalItems() }}</span>
+    </div>
+
+    @if (isCartOpen && cartService.totalItems() > 0) {
+      <app-cart-dropdown />
+    }
+  </div>
+</header>

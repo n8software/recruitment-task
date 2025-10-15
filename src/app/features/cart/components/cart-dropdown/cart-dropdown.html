@@ -1,0 +1,35 @@
+<div class="cart-dropdown">
+  <div class="cart-header">
+    <span class="items-info">
+      {{ cartService.totalItems() }} ITEMS IN CART
+    </span>
+    <span class="total-price">
+    	{{ cartService.totalPrice() | currency: cartService.cartCurrency() }}
+    </span>
+    <button class="clear-cart-btn" (click)="cartService.clearCart()">
+      CLEAR CART
+    </button>
+  </div>
+
+  <ul class="cart-items-list">
+    @for (item of cartService.items(); track item.id) {
+      <li
+        class="cart-item"
+        (mouseenter)="itemHovered = item.id"
+        (mouseleave)="itemHovered = null">
+        <img [src]="item.image" [alt]="item.name" class="item-image" />
+        <div class="item-details">
+          <span class="item-name">{{ item.name }}</span>
+          @if (itemHovered === item.id) {
+            <button class="remove-item-btn" (click)="cartService.removeFromCart(item.id)">
+              Remove
+            </button>
+          }
+        </div>
+        <span class="item-price">
+        	{{ item.price | currency: item.currency }}
+        </span>
+      </li>
+    }
+  </ul>
+</div>

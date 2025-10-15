@@ -1,0 +1,68 @@
+:host {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.content-wrapper {
+  width: var(--app-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .game-of-the-week {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .banner-image {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .section-title {
+      display: block;
+      font-size: var(--lg-text);
+      font-weight: 700;
+      color: var(--title-color);
+      margin-bottom: 24px;
+      text-align: left;
+      width: 100%;
+    }
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media (min-width: 451px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 651px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 901px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1101px) {
+  .product-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
