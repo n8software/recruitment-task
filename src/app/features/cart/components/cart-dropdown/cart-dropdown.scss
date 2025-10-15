@@ -1,0 +1,116 @@
+:host {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+}
+
+.cart-dropdown {
+  width: 370px;
+  background-color: var(--dropdown-background);
+  box-shadow: var(--box-shadow-dropdown);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--dropdown-background);
+
+  .items-info, .total-price {
+    font-size: var(--lg-text);
+    font-weight: 700;
+    color: var(--dropdown-text-header);
+    flex-grow: 1;
+  }
+
+  .total-price {
+    margin-right: 8px;
+    text-align: right;
+  }
+
+  .clear-cart-btn {
+    background: var(--btn-clear-gradient);
+    color: var(--btn-clear-text);
+    font-size: var(--sm-text);
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius-base);
+    transition: background-color 0.2s ease;
+  }
+}
+
+.cart-items-list {
+  list-style: none;
+  max-height: 370px;
+  overflow-y: auto;
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-right: 8px;
+    transition: background-color 0.2s ease;
+    border-top: 1px solid var(--dropdown-border-color);
+    background-color: var(--dropdown-background);
+    .item-image {
+      width: 100px;
+      height: auto;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    .item-details {
+      flex-grow: 1;
+      position: relative;
+      min-width: 0;
+
+      .item-name {
+        display: block;
+        font-size: var(--md-text);
+        font-weight: 600;
+        color: var(--dropdown-text-item-name);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .remove-item-btn {
+        font-size: var(--sm-text);
+        line-height: var(--sm-text);
+        color: var(--dropdown-text-item-name);
+        background: none;
+        text-decoration: underline;
+        padding: 0;
+        margin-top: 10px;
+        margin-bottom: 4px;
+      }
+    }
+
+    .item-price {
+      font-size: var(--md-text);
+      font-weight: 600;
+      color: var(--dropdown-text-item-price);
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .cart-dropdown{
+    width: 80vw;
+  }
+
+  .cart-header{
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .total-price {
+    margin-right: 0;
+  }
+
+  .clear-cart-btn {
+    width: 100%;
+  }
+}

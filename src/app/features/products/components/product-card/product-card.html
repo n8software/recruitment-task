@@ -1,0 +1,28 @@
+<div class="product-card">
+  <div class="image-container">
+    <img [src]="product.image" [alt]="product.name" class="product-image" />
+  </div>
+
+  <div class="info-container">
+    <span class="product-name">{{ product.name }}</span>
+
+    <div class="action-button-wrapper">
+      @switch (true) {
+        @case (product.owned) {
+          <button class="action-btn owned-btn" disabled>OWNED</button>
+        }
+        @case (isInCart) {
+          <button class="action-btn in-cart-btn" disabled>IN CART</button>
+        }
+        @default {
+          @if (product.discountPercent) {
+            <span class="discount-tag">-{{ product.discountPercent }}%</span>
+          }
+          <button class="action-btn price-btn" (click)="onAddToCartClick()">
+              {{ product.price | currency: product.currency : 'symbol' : '1.2-2' }}
+          </button>
+        }
+      }
+    </div>
+  </div>
+</div>

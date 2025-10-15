@@ -1,59 +1,106 @@
-# GogStore
+# GOG.com Storefront - Recruitment Task
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+This project is a high-fidelity implementation of a GOG.com-style storefront page, developed as a recruitment task. It showcases a modern, scalable, and well-tested approach to building applications with the latest version of Angular.
 
-## Development server
+The application faithfully recreates the provided Figma design, focusing on clean architecture, component-based structure, and reactive state management.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Key Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Dynamic Product Grid:** Displays a list of products fetched from a mock service.
+- **Interactive Product Cards:** Products can be in different states: available for purchase, already owned, or in the cart.
+- **Reactive Shopping Cart:**
+  - A cart icon in the header dynamically displays the number of items.
+  - A hover-activated dropdown shows a detailed summary of the cart.
+  - Functionality to remove individual items or clear the entire cart.
+- **State Management:** The cart state is managed centrally and reactively, ensuring the UI is always in sync.
+- **Dynamic Discounts:** Promotion badges (e.g., "-50%") are calculated dynamically based on product prices, not hardcoded.
+- **Responsive Design:** A basic responsive layout has been implemented to ensure usability on smaller screens, as an enhancement to the original requirements.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tech Stack
 
-```bash
-ng generate component component-name
-```
+- **Framework:** Angular v18+ (utilizing Standalone Components and new `@` Control Flow syntax)
+- **State Management:** Angular Signals for simple, efficient, and fine-grained reactivity.
+- **Styling:** SCSS with CSS Variables for a maintainable and consistent design system.
+- **Language:** TypeScript
+- **Testing:** Jasmine & Karma for unit tests.
+- **Build Tool:** Angular CLI
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Getting Started
 
-## Building
+Follow these instructions to get the project up and running on your local machine.
 
-To build the project run:
+### Prerequisites
 
-```bash
-ng build
-```
+Make sure you have the following software installed:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Node.js:** `v20.x` (Project was tested with `v20.19.4`)
+- **Angular CLI:** `v20.x` (Project was tested with `v20.3.5`)
 
-## Running unit tests
+You can check your versions using `node -v` and `ng --version`.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Installation & Running
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repository-url>
+    ```
+
+2.  **Navigate to the project directory:**
+    ```bash
+    cd <project-directory>
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    ng serve
+    ```
+    The application will automatically open in your default browser at `http://localhost:4200/`. The app will also automatically reload if you change any of the source files.
+
+---
+
+## Running Tests
+
+Unit tests are set up using Jasmine and Karma. To run them, execute the following command in the project root:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+This command will launch the Karma test runner, execute all unit tests, and provide a summary in the console.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## Architectural Decisions
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+A few key decisions were made to ensure the application is scalable, maintainable, and follows modern best practices.
 
-## Additional Resources
+1.  **State Management (Angular Signals vs. NgRx):**
+    For the scale of this application, a full-fledged state management library like NgRx would be over-engineering. We chose **Angular Signals** to manage the cart's state. It provides a simple, high-performance, and built-in solution for reactive state, perfectly suited for this use case.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2.  **Smart vs. Presentational Components:**
+    The application is structured using the "Smart/Presentational" component pattern.
+    - **Smart Components** (e.g., `product-list`) are responsible for fetching data and managing state.
+    - **Presentational Components** (e.g., `product-card`) are "dumb" components that receive data via `@Input()` and emit events via `@Output()`, making them highly reusable and easy to test.
+
+3.  **Data Flow (DTO vs. Domain Model):**
+    To decouple the frontend from the backend's data structure, we introduced a two-step data model:
+    - A **Data Transfer Object (DTO)** (`product.dto.ts`) mirrors the raw data from the API (including prices in cents).
+    - A **Domain Model** (`product.model.ts`) represents the data in a clean, UI-friendly format.
+    A **mapper function** in the `ProductsService` is responsible for the transformation, handling logic like price conversion (`/ 100`) and discount calculation. This keeps our components clean and free of business logic.
+
+---
+
+## Notes & Considerations
+
+- **Assets Quality:** The image assets used in this project were extracted directly from the provided Figma file and may be of lower quality or imperfectly cropped. In a production environment, high-resolution, optimized assets provided by a design team would be used.

@@ -1,0 +1,16 @@
+<div class="content-wrapper">
+  <div class="game-of-the-week">
+    <span class="section-title">GAME OF THE WEEK</span>
+    <img src="assets/images/banner.webp" alt="The Witcher Adventure Game" class="banner-image" />
+  </div>
+
+  <div class="product-grid">
+    @for (product of (products$ | async); track product.id) {
+      <app-product-card
+        [product]="product"
+        [isInCart]="cartService.isProductInCart(product.id)"
+        (addToCart)="onAddToCart($event)"
+      />
+    }
+  </div>
+</div>

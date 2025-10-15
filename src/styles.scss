@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+:root {
+  --font-family-base: 'Source Sans Pro', sans-serif;
+  --app-width: 1060px;
+
+  --sm-text: 13px;
+  --md-text: 14px;
+  --lg-text: 15px;
+
+  --color-white: #FFFFFF;
+  --color-grey-base: #DEDEDE;
+  --color-grey-dark: #CBCACC;
+  --color-grey-40: #404040;
+  --color-black-grey: #262626;
+  --color-black-near: #1A1A1A;
+  --color-black-soft: #212121;
+  --color-accent-purple-dark: #7A3DC6;
+  --color-accent-purple-light: #B65AE2;
+  --color-white-translucent-50: rgba(255, 255, 255, 0.5);
+  --color-white-translucent-49: rgba(255, 255, 255, 0.49);
+  --color-grey-overlay-start: rgba(220, 220, 220, 0.0001);
+  --color-grey-224: rgba(224, 224, 224, 1);
+  --color-black-33: rgb(33, 33, 33);
+  --color-grey-97: #979797;
+  --color-grey-198-50: rgba(198, 198, 198, 0.5);
+  --color-grey-64: rgba(64, 64, 64, 1);
+  --color-green-gog: rgba(0, 144, 94, 1);
+  --border-color-dark: #B8B8B8;
+
+  --border-color-default: var(--border-color-dark);
+  --title-color: var(--color-black-grey);
+  --cart-color: var(--color-black-grey);
+  --background-gradient-base: var(--color-grey-base);
+  --overlay-gradient-start: var(--color-grey-overlay-start);
+  --overlay-gradient-mid: var(--color-white-translucent-50);
+  --overlay-gradient-end: var(--color-white-translucent-49);
+  --card-background: var(--color-grey-224);
+  --product-name-color: var(--color-black-33);
+  --btn-border-color: var(--color-grey-97);
+  --btn-shadow-color: var(--color-grey-198-50);
+  --btn-text-color: var(--color-grey-64);
+  --btn-owned-color: var(--color-grey-40);
+  --discount-tag-bg: var(--color-green-gog);
+  --discount-tag-text: var(--color-white);
+
+  --dropdown-background: var(--color-light-background);
+  --dropdown-text-header: var(--color-black-near);
+  --dropdown-text-item-name: var(--color-black-soft);
+  --dropdown-text-item-price: var(--btn-text-color);
+  --dropdown-border-color: var(--border-color-dark);
+  --btn-clear-gradient: linear-gradient(0deg, var(--color-accent-purple-dark) 0%, var(--color-accent-purple-light) 100%);
+  --btn-clear-text: var(--color-white);
+
+  --background-main-color: var(--color-grey-dark);
+  --color-light-background: var(--color-white);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-main-color);
+}
+
+button {
+  font-family: var(--font-family-base);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}

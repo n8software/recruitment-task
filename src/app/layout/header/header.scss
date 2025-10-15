@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, var(--background-gradient-base), var(--background-gradient-base)),
+              linear-gradient(360deg, 
+                              var(--overlay-gradient-start) 0%, 
+                              var(--overlay-gradient-mid) 93.45%, 
+                              var(--overlay-gradient-end) 100%);
+}
+
+.top-bar {
+  width: var(--app-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+}
+
+.cart-section {
+  position: relative;
+  height: 100%;
+  display: flex;
+  border: 1px solid var(--border-color-default);
+  border-top: none;
+  border-bottom: none;
+  width: 58px;
+  justify-content: center;
+  background: var(--color-light-background);
+  margin-right: -1px;
+
+  .cart-icon-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .cart-icon {
+      height: 15px;
+    }
+
+    .cart-items-count {
+      font-size: var(--md-text);
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--btn-text-color)
+    }
+  }
+}
